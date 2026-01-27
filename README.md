@@ -84,7 +84,7 @@ This makes the clock appear on top of the date underneath it similar to Windows.
 
 **File:** `~/.config/gtk-3.0/gtk.css`
 
-These tweaks adjust the font size and readability of icons on the desktop (DING).
+These tweaks adjust the font size and shadows on the desktop launchers (DING). For me 9.5 is the sweet spot for names on the launchers, but it is heavily dependent on the monitor and icon size. My icons are set on Tiny. Tweak accordingly.
 
 ```css
 /* Decrease font size for Desktop Icons NG */
