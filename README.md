@@ -13,7 +13,7 @@ These are my personal patches and configuration overrides for the GNOME Shell en
 
 **Patch Applied:** `metro.patch`
 
-> **Description:** This patch modifies the "Metro" style running indicators. By default, the indicators are rectangles that can awkwardly bump into each other. This patch transforms them into slightly inset, rounded capsules and centers them under the icon. It utilizes the existing dot size and color settings, changing only the geometry for a more pleasing aesthetic.
+**Description:** This patch modifies the "Metro" style running indicators. By default, the indicators are rectangles that can awkwardly bump into each other. This patch transforms them into slightly inset, rounded capsules and centers them under the icon. It utilizes the existing dot size and color settings, changing only the geometry for a more pleasing aesthetic.
 
 ---
 
@@ -25,21 +25,25 @@ These are my personal patches and configuration overrides for the GNOME Shell en
 > **Important Note:**
 > Ubuntu’s GNOME session mode explicitly refuses to load user copies of system extensions (even if found in `~/.local`). To ensure edits take effect, patched Ubuntu extensions must be placed in `/usr/local/share/...`. GNOME prefers `/usr/local/share` over `/usr/share` on a standard Ubuntu setup, allowing these patches to persist without being overwritten by `apt`.
 
+--
+
 **Patch Applied:** `ding_unselect.patch`
 
-> **Description:** Fixes a persistent issue where double-clicking a desktop launcher leaves the icon selected. This patch schedules `unselectAll()` on idle, ensuring it runs after the click/release logic finishes.
+**Description:** Fixes a persistent issue where double-clicking a desktop launcher leaves the icon selected. This patch schedules `unselectAll()` on idle, ensuring it runs after the click/release logic finishes.
+
+--
 
 **Patch Applied:** `ding-fixed-step-grid.patch`
 
-> **Description:** Switches DING from "justified/stretchy" placement to a **fixed-step grid**.
-> *The Problem:* DING originally calculates row height using `Math.floor(height / maxRows)`. This forces the grid to fill the entire available height, distributing leftover pixels into the row steps. Because coordinates are calculated proportionally, rounding errors accumulate. On lower rows (5 or 6), this results in visual "drift" where the spacing feels inconsistent, especially with smaller fonts.
-> *The Fix:* This patch implements a fixed-step grid logic:
-> * Icons are placed using fixed math: `row * _elementHeight`.
-> * A "dead zone" is implicitly defined for remainder pixels at the bottom/right.
-> * Items snapped to the dead zone are clamped to the last valid row/column.
-> * This ensures icons adhere to the requested cell size (`Prefs` + spacing) rather than stretching to fill the monitor.
-> 
-> 
+**Description:** Switches DING from "justified/stretchy" placement to a **fixed-step grid**.
+*The Problem:* DING originally calculates row height using `Math.floor(height / maxRows)`. This forces the grid to fill the entire available height, distributing leftover pixels into the row steps. Because coordinates are calculated proportionally, rounding errors accumulate. On lower rows (5 or 6), this results in visual "drift" where the spacing feels inconsistent, especially with smaller fonts.
+*The Fix:* This patch implements a fixed-step grid logic:
+* Icons are placed using fixed math: `row * _elementHeight`.
+* A "dead zone" is implicitly defined for remainder pixels at the bottom/right.
+* Items snapped to the dead zone are clamped to the last valid row/column.
+* This ensures icons adhere to the requested cell size (`Prefs` + spacing) rather than stretching to fill the monitor.
+ 
+ 
 
 ---
 
