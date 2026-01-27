@@ -2,7 +2,7 @@
 
 # Ubuntu Dotfiles / larsoyd
 
-This repository contains my personal patches and configuration overrides for the GNOME Shell environment, specifically targeting **Dash to Panel** and **Desktop Icons NG (DING)**.
+These are my personal patches and configuration overrides for the GNOME Shell environment, specifically targeting **Dash to Panel** and **Desktop Icons NG (DING)**.
 
 ## Patched Extensions
 
