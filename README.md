@@ -16,6 +16,12 @@ Patch Applied: ding_unselect.patch
 
 Description: DING Unselect addresses a major pet peeve of mine, that being that when you double-click desktop launchers on the desktop it stays selected. For some reason this is quite common on Linux, I think XFCE is the only desktop that doesn't do this. This patch fixes the problem by scheduling unselectAll() on idle and makes it run after the click/release logic finishes.
 
+Patch Applied: ding-fixed-step-grid.patch
+
+Description: One of the problems of DING is that the desktop launchers look off. I looked into why this is and figured it out. In DesktopGrid.createGrids() DING first decides how many rows fit by doing a floor division against the “ideal” icon cell size (desired height plus spacing). Then it forces the grid to fill the entire available height by redefining the real cell height as Math.floor(this._height / this._maxRows). That effectively distributes the leftover pixels into the per-row step. The worst part for the visual “drift” is when it converts a (column,row) into actual pixel coordinates, as it does it proportionally: localY = Math.floor(this._height * row / this._maxRows) (and same idea for X). Because each row’s position is separately floored, the rounding error accumulates unevenly as you go down. If you have a smaller font like I do it makes the extra empty vertical slack inside each cell more noticeable, so by the time you’re at row 5 or 6 it “feels” like the spacing has changed even though the icon artwork did not.
+
+I decided to patch this by switching DING from “justified/stretchy” placement to a fixed-step grid. I achieve this without changing the overlap-avoidance logic by defining a “dead zone” implicitly. Any remainder pixels at the bottom/right no longer get distributed into row heights, and anything dropped there snaps to the last row/column. This effectively stops the “stretching” `_elementWidth/_elementHeight` of icons to fill the whole monitor and instead locks them to the fixed requested cell size (`Prefs.get_desired_*() + 4*elementSpacing`). To do this it places icons using fixed-step math (row * _elementHeight, col * _elementWidth) instead of proportional Math.floor(this._height * row / this._maxRows). Finally it clamps drag snap coordinates in the “dead zone” (bottom/right remainder) so drag highlight and drop never end up one cell beyond the last valid row/column.
+
 ---
 
 
