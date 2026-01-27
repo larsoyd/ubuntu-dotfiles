@@ -77,9 +77,6 @@ This makes the clock appear on top of the date underneath it similar to Windows.
     /* "Cut" the line by pushing the element away from the panel edges */
     margin-top: 5px !important;
     margin-bottom: 5px !important;
-
-    /* Optional: Ensure the line thickness setting is respected or forced */
-    /* border-left-width: 1px !important; */
 }
 
 ```
