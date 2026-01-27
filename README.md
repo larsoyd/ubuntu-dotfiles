@@ -61,7 +61,7 @@ This file tweaks the visual balance of the Dash to Panel extension. Specifically
 dconf write /org/gnome/shell/extensions/panel-date-format/format "'%H:%M%n%d/%m/%Y'"
 ```
 
-This makes the clock appear on top of the date underneath it similar to Windows. Finally, the patch forces font size down to 0.85em in order to prevent issues and ensures the text lines are centered instead of aligned from the left. 
+This makes the clock appear on top of the date underneath it similar to Windows. Finally, the patch forces font size down to 0.85em which you can tweak, for me it looks better on my panel and isn't clipping. It also ensures the text lines are centered instead of aligned from the left. 
 
 2. Show Desktop: I use the "Show Desktop" button at the end of my panel to clear the screen. By default, the border stretches from the very top to the very bottom, looking like a fugly wall. I added top and bottom margins to "cut" the line. This pushes the element away from the panel edges, transforming it into a floating separator which looks much cleaner.
 
