@@ -7,7 +7,7 @@ Description: This patch turns the METRO indicators under the icons from rectangl
 
 ---
 
-Ubuntu’s GNOME session mode is explicitly refusing to load the user copies of their extensions, even though it finds it. So if we put Ubuntu extensions in ~/.local/... then edits will never take effect. - Lesson: When editing Ubuntu extensions, put your patched copy in /usr/local/share/... (system-level, but not managed by apt), because GNOME will prefer /usr/local/share over /usr/share on a normal Ubuntu setup.
+Ubuntu’s GNOME session mode is explicitly refusing to load the user copies of their extensions, even though it finds it. So if we put Ubuntu extensions in ~/.local/... then edits will never take effect. - Therefore, when editing Ubuntu extensions, you must put your patched copy in /usr/local/share/... (system-level, but not managed by apt), as  GNOME will prefer /usr/local/share over /usr/share on a normal Ubuntu setup.
 
 DING:
 /usr/local/share/gnome-shell/extensions/ding@rastersoft.com
