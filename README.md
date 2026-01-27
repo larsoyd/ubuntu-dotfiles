@@ -3,7 +3,7 @@ Dash to Panel:
 
 Patch Applied: metro.patch
 
-Description: This patch turns the METRO indicators under the icons from rectangles that bump into each other into slightly inset rounded capsules. It also centers them under the icon. It uses existing dot size + color settings, and only changes geometry.
+Description: This patch turns the METRO indicators under the icons from rectangles that bump into each other into slightly inset rounded capsules. It also centers them under the icon. It uses existing dot size + color settings, and only changes geometry. This looks much more pleasing to the eye in my opinion.
 
 ---
 
