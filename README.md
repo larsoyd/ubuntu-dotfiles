@@ -51,13 +51,13 @@ This repository contains my personal patches and configuration overrides for the
 
 This file tweaks the visual balance of the Dash to Panel extension. Specifically, the clock typography and the behavior of the "Show Desktop" button so it acts more as a visual separator.
 
-1. Clock: I find the default clock text too large and ugly. To use this correctly you need to install the Panel Date Format (by KEIII) extension so you can set a custom clock format. I then set the format to 3 lines (time, weekday, date) with 24-hour time with dconf: 
+1. Clock: I find the default clock text too large and ugly. To use this correctly you need to install the Panel Date Format (by KEIII) extension so you can set a custom clock format. Then set the format to 2 lines (time & date) with 24-hour time with dconf: 
 
 ```bash
 dconf write /org/gnome/shell/extensions/panel-date-format/format "'%H:%M%n%d/%m/%Y'"
 ```
 
-This makes the clock appear on top of the date underneath it. Finally, the patch forces font size down to 0.85em in order to prevent issues and ensures the text lines are centered instead of aligned from the left. 
+This makes the clock appear on top of the date underneath it similar to Windows. Finally, the patch forces font size down to 0.85em in order to prevent issues and ensures the text lines are centered instead of aligned from the left. 
 
 2. Show Desktop: I use the "Show Desktop" button at the end of my panel to clear the screen. By default, the border stretches from the very top to the very bottom, looking like a fugly wall. I added top and bottom margins to "cut" the line. This pushes the element away from the panel edges, transforming it into a floating separator which looks much cleaner.
 
