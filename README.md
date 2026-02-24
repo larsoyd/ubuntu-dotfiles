@@ -33,11 +33,9 @@ These are my personal patches and configuration overrides for the GNOME Shell en
 
 --
 
-# DING Desktop Icon Label Shadow Override on Ubuntu (What Worked)
+### 2.5 DING Desktop Icon Label Shadow Override on Ubuntu
 
-## Summary
-
-I wanted to make the Desktop Icons NG (DING) desktop label text shadow slightly more prominent using CSS.
+I wanted to make the Desktop Icons NG (DING) desktop label text shadow slightly more prominent using CSS. I faced some issues.
 
 The CSS syntax was not the problem. The real issue was **where Ubuntu was loading DING from** and how Ubuntu treats some system/session-managed extensions.
 
