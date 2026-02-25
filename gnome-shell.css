@@ -1,0 +1,73 @@
+/* Target the Show Desktop button acting as a separator */
+.showdesktop-button {
+    /* "Cut" the line by pushing the element away from the panel edges */
+    margin-top: 7px !important;
+    margin-bottom: 7px !important;
+}
+
+/* Fix off-center battery icon by forcing a constant bounding box */
+#panel .power-status StIcon {
+    icon-size: 16px !important; /* Standard symbolic icon size */
+    width: 24px !important;     /* Fixed width stops the charging bolt from shifting layout */
+    margin-left: 2px !important;
+    margin-right: 0px !important; /* Pulls the text 2px to the left safely by removing the icon's right gap */
+    margin-top: 1px !important; /* Mathematically push the icon down to align baselines */
+}
+
+/* Top bar: battery percentage text (next to the battery icon) */
+#panel .power-status StLabel {
+  font-family: "Ubuntu Sans", "Ubuntu", "Cantarell", sans-serif !important;
+  font-size: 0.80em !important;
+  padding-top: 1px !important; /* Pushes the text down safely without expanding the panel container */
+}
+
+/* Dash to Panel clock container */
+.dashtopanelMainPanel .panel-button.clock-display {
+    padding-right: 0px !important; /* Removes default padding so the box hits the absolute right edge */
+}
+
+/* Dash to Panel clock styling */
+.dashtopanelMainPanel .panel-button.clock-display .clock {
+    font-family: "Ubuntu Sans", "Ubuntu", "Cantarell", sans-serif !important;
+    text-align: center !important;
+    font-size: 0.85em !important;
+    
+    background-color: rgba(0, 0, 0, 0.09) !important; /* Slightly lighter dark background */
+    border-radius: 6px 0px 0px 6px !important;        /* Rounds the left side, keeps right side flat */
+    padding: 2px 10px !important;                     /* Inside spacing of the box */
+    margin-left: 8px !important;                      /* Pushes the box away from the battery % */
+}
+
+/* Dash-to-Panel: subtle rounded top corners for BOTH hover and focused/active highlight */
+#dashtopanelScrollview .overview-tile .dtp-container,
+#dashtopanelScrollview .overview-tile:hover .dtp-container,
+#dashtopanelScrollview .overview-tile:focus .dtp-container,
+#dashtopanelScrollview .overview-tile:active .dtp-container,
+#dashtopanelScrollview .overview-tile.focused .dtp-container,
+#dashtopanelScrollview .overview-tile.focused:hover .dtp-container {
+  border-radius: 8px 8px 8px 8px !important;  /* subtle */
+  overflow: hidden !important;            /* actually clips the painted bg */
+}
+
+/* This is the “selected/active app” highlight box when focus-highlight is enabled */
+#dashtopanelScrollview .overview-tile .dtp-dots-container,
+#dashtopanelScrollview .overview-tile.focused .dtp-dots-container,
+#dashtopanelScrollview .overview-tile.focused:hover .dtp-dots-container {
+  border-radius: 6px 6px 6px 6px !important;  /* subtle */
+  overflow: hidden !important;
+}
+
+/* GNOME Shell popup toast notifications (banners) */
+.notification-banner {
+  width: 28em !important;
+  max-width: 28em !important;
+  min-height: 0 !important;
+}
+
+/* Let the text use the banner width instead of an extra inner cap */
+.notification-banner .notification-content,
+.notification-banner .notification-title,
+.notification-banner .notification-message {
+  max-width: none !important;
+}
+
